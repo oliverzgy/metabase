@@ -1,4 +1,4 @@
-version: '2'
+version: '3.0'
 services:
   postgres:
     image: postgres:10
@@ -7,10 +7,8 @@ services:
       POSTGRES_DB: metabase
       POSTGRES_PASSWORD: metabase
       POSTGRES_USER: metabase
-    ports:
-      - 54320:5432
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - ./data/postgres:/var/lib/postgresql/data
 
   metabase:
     build:
@@ -29,10 +27,4 @@ services:
     depends_on:
       - postgres
     volumes:
-      - metabase:/metabase-data
-
-volumes:
-  postgres:
-    external: false
-  metabase:
-    external: false
+      - ./data/metabase:/metabase-data
