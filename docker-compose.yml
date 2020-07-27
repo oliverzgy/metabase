@@ -1,7 +1,7 @@
 version: '3.0'
 services:
   postgres:
-    image: postgres:10
+    image: postgres:11
     restart: unless-stopped
     environment:
       POSTGRES_DB: metabase
@@ -23,7 +23,7 @@ services:
       MB_DB_HOST: postgres
       MB_DB_PORT: 5432
     ports:
-      - 3100:3000
+      - 3000:3000
     depends_on:
       - postgres
     volumes:
