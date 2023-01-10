@@ -25,6 +25,7 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - postgres
+      postgres:
+        condition: service_started
     volumes:
       - ./data/metabase:/metabase-data
